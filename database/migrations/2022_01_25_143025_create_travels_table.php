@@ -21,10 +21,8 @@ class CreateTravelsTable extends Migration
             $table->string('travel_type', 50); // tipo di viaggio (rilassante, gastronomico, lusso, ecc.)
             $table->string('stay_type', 100); // tipo di soggiorno (camera doppia, singola, ecc.)
             $table->tinyInteger('n_night')->unsigned(); // notti di pernottamento
-            $table->decimal('price', 7, 2)->unsigned(); // prezzo finale
+            $table->integer('price')->unsigned(); // prezzo finale
             $table->text('description'); // descrizione
-            $table->date('start_date'); // data di partenza
-            $table->date('end_date'); // data di ritorno
             $table->boolean('is_available')->unsigned()->default(1); //disponibilità del pacchetto (sì/no)
 
             $table->timestamps();
