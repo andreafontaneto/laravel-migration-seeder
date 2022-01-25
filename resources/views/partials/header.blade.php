@@ -2,13 +2,10 @@
 
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="">HOME</a>
+      <a class="nav-link {{ (Route::currentRouteName() === 'home') ? 'active' : '' }}" aria-current="page" href="{{route('home')}}">HOME</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">TRIPS & TRAVEL</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">CONTACTS</a>
+      <a class="nav-link {{ (Route::currentRouteName() === 'travels') ? 'active' : '' }}" href="{{route('travels')}}">TRIPS & TRAVEL</a>
     </li>
   </ul>
 
