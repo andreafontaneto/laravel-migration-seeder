@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Generator as Faker;
 use App\Travel;
 use Illuminate\Database\Seeder;
 
@@ -10,17 +11,23 @@ class TravelsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $new_travel = new Travel();
-        
-        $new_travel->package_name = "Goditi la vita";
-        $new_travel->destination = "Maldive";
-        $new_travel->travel_type = "Relax";
-        $new_travel->stay_type = "camera doppia";
-        $new_travel->n_night = 7;
-        $new_travel->price = 4500;
-        $new_travel->description = "Una vacanza da sogni in un isola da sogno";
-        $new_travel->save();
+
+        for($i=0; $i<100; $i++){
+
+            $new_travel = new Travel();
+            
+            $new_travel->package_name = $faker->word();
+            $new_travel->destination = $faker->city();
+            $new_travel->travel_type = $faker->word();
+            $new_travel->stay_type = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $new_travel->n_night = $faker->numberBetween($min = 3, $max = 31);
+            $new_travel->price = $faker->numberBetween($min = 1000, $max = 9000);
+            $new_travel->description = $faker->text($maxNbChars = 200);
+            $new_travel->save();
+
+        }
+
     }
 }
