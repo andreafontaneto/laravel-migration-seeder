@@ -17,7 +17,7 @@ class CreateTravelsTable extends Migration
             $table->id();
 
             $table->string('package_name', 100); // nome pacchetto
-            $table->string('destination', 100); // destinazione
+            $table->string('destination', 200); // destinazione
             $table->string('travel_type', 50); // tipo di viaggio (rilassante, gastronomico, lusso, ecc.)
             $table->string('stay_type', 100); // tipo di soggiorno (camera doppia, singola, ecc.)
             $table->tinyInteger('n_night')->unsigned(); // notti di pernottamento
